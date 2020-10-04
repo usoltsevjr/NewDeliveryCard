@@ -106,6 +106,7 @@ public class CardDeliveryTest {
 
     @Test
     void shouldTestEmptyForm() {
+        $("[data-test-id='date'] input").setValue(dateOfDelivery);
         $("[data-test-id='agreement']").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id=city].input_invalid .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
