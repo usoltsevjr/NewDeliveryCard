@@ -19,6 +19,7 @@ public class CardDeliveryTest {
     private final String name = getRandomName();
     private final String notCorrectName = getNotCorrectName();
     private final String phone = getRandomPhone();
+    private final String phone2 = getIncorrectPhone();
 
     @BeforeEach
     void setUpAll() {
@@ -158,10 +159,10 @@ public class CardDeliveryTest {
 
     @Test
     void shouldNotSubmitIfNotCorrectPhone() {
-        $("[data-test-id='city'] input").setValue(DataGenerator.getRandomCity());
-        $("[data-test-id='date'] input").setValue(DataGenerator.getCorrectDate(3));
-        $("[data-test-id='name'] input").setValue(DataGenerator.getRandomName());
-        $("[data-test-id='phone'] input").setValue("+92178955");
+        $("[data-test-id='city'] input").setValue(city);
+        $("[data-test-id='date'] input").setValue(dateOfDelivery);
+        $("[data-test-id='name'] input").setValue(name);
+        $("[data-test-id='phone'] input").setValue(phone2);
         $("[data-test-id='agreement']").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id=phone].input_invalid .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));

@@ -41,7 +41,7 @@ public class DataGenerator {
     }
 
     public static String getRandomName() {
-        String name = faker.name().firstName() + " " + faker.name().lastName();
+        String name = faker.name().lastName() + " " + faker.name().firstName();
         return name;
     }
 
@@ -52,6 +52,11 @@ public class DataGenerator {
 
     public static String getRandomPhone() {
         String phone = faker.phoneNumber().phoneNumber();
+        return phone;
+    }
+
+    public static String getIncorrectPhone(){
+        String phone = fakereng.phoneNumber().phoneNumber();
         return phone;
     }
 
